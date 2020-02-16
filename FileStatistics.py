@@ -1,4 +1,4 @@
-class Statistics(object):
+class FileStatistics:
     """This class defines an object that keeps track
        of the frequency of different file types in the directories
        traversed. 
