@@ -7,6 +7,8 @@ def traverse_directories(dir):
         
         for file in files:
             print(file)
+            file_extension = os.path.splitext(file)
+            print("The file extension is: " + file_extension[1])
 
         for dir in dirs:
             print(dir)
