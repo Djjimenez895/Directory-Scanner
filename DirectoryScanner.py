@@ -10,10 +10,10 @@ def traverse_directories(dir):
         
         for file in files:
             print(file)
-            file_extension = os.path.splitext(file)
+            file_extension = os.path.splitext(file)[1]
 
             if (file_extension in stats.file_frequency_dict):
-                file_frequency_dict[file_extension] += 1
+                stats.file_frequency_dict[file_extension] += 1
             else:
                 stats.file_frequency_dict[file_extension] = 1
             
