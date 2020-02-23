@@ -1,14 +1,39 @@
 import os
 from FileStatistics import FileStatistics
 import matplotlib.pyplot as plt
-import numpy
+import numpy as np
 
 def graph_files(stats):
-    graph_fig = plt.figure()
-    graph_axes = graph_fig.add_axes([0, 0, 1, 1])
-    file_exts = list(stats.file_frequency_dict.keys())
-    extension_freq = list(stats.file_frequency_dict.values())
-    graph_axes.bar(file_exts, extension_freq)
+    plt.style.use('seaborn')
+    x_axis_values = list(stats.file_frequency_dict.keys()) # File extensions
+    y_axis_values = list(stats.file_frequency_dict.values()) # Number of occurences for a file extension
+
+    x_pos = [i for i, a in enumerate(x_axis_values)]
+
+    plt.bar(x_pos, y_axis_values, color='green')
+    plt.xlabel("File Extensions")
+    plt.ylabel("Number of Files")
+    plt.title("File Extension Occurences")
+
+    plt.xticks(x_pos, x_axis_values)
+    plt.show()
+
+
+def test_graph():
+    plt.style.use('ggplot')
+
+    x = ['Nuclear', 'Hydro', 'Gas', 'Oil', 'Coal', 'Biofuel']
+    energy = [5, 6, 15, 22, 24, 8]
+
+    x_pos = [i for i, _ in enumerate(x)]
+
+    plt.bar(x_pos, energy, color='green')
+    plt.xlabel("Energy Source")
+    plt.ylabel("Energy Output (GJ)")
+    plt.title("Energy output from various fuel sources")
+
+    plt.xticks(x_pos, x)
+
     plt.show()
 
 
@@ -33,8 +58,9 @@ def traverse_directories(dir):
         for dir in dirs:
             print(dir)
 
-    print(stats.file_frequency_dict)
+    # print(stats.file_frequency_dict)
     graph_files(stats)
+    # test_graph()
 
 def main():
     print("Please enter a directory:")
