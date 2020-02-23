@@ -17,7 +17,7 @@ def traverse_directories(dir):
             else:
                 stats.file_frequency_dict[file_extension] = 1
             
-            print("The file extension is: " + file_extension[1])
+            print("The file extension is: " + file_extension)
 
         for dir in dirs:
             print(dir)
