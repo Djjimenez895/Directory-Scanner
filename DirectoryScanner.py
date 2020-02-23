@@ -1,5 +1,16 @@
 import os
 from FileStatistics import FileStatistics
+import matplotlib.pyplot as plt
+import numpy
+
+def graph_files(stats):
+    graph_fig = plt.figure()
+    graph_axes = graph_fig.add_axes([0, 0, 1, 1])
+    file_exts = list(stats.file_frequency_dict.keys())
+    extension_freq = list(stats.file_frequency_dict.values())
+    graph_axes.bar(file_exts, extension_freq)
+    plt.show()
+
 
 def traverse_directories(dir):
     stats = FileStatistics()
@@ -23,6 +34,7 @@ def traverse_directories(dir):
             print(dir)
 
     print(stats.file_frequency_dict)
+    graph_files(stats)
 
 def main():
     print("Please enter a directory:")
