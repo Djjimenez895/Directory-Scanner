@@ -1,7 +1,8 @@
 class FileStatistics:
-    """This class defines an object that keeps track
-       of the frequency of different file types in the directories
-       traversed. 
+    """
+    This class defines an object that keeps track
+    of the frequency of different file types in the directories
+    traversed. 
     """
     def __init__(self):
         print("Creating Statistics object")
