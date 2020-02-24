@@ -5,7 +5,6 @@ import numpy as np
 
 '''
     Description: Uses matplob lib to graph the data passed in as input
-
     Input: stats - a FileStatistics object that contains a dictionary with the file extensions (the key) and the number of files with that extension (the value). 
     Return value: N/A
 '''
@@ -31,7 +30,6 @@ def graph_files(stats):
     Description: Traverses the directory passed in as an argument and creates a FileStatistics 
     object that uses a dictionary to keep track of the file extensions (keys) found in the directory given (and all subdirectories) 
     and the number of times that file extension occurs (values).
-
     Input: A string that contains the directory to traverse. The algorithm will also traverse subdirectories of the given directory. 
     Return value: N/A
 '''
@@ -61,9 +59,8 @@ def traverse_directories(dir):
 
 '''
     Description: This is the main function for running the program; use this function for running the application. 
-
     Input: N/A
-    Return: N/A
+    Return value: N/A
     TODO: Add input validation for directories entered into the application
 '''
 def main():
