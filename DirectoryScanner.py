@@ -11,8 +11,7 @@ import numpy as np
 '''
 def graph_files(stats):
     # TODO: Add a label to each individual bar in the graph
-    # TODO: Document the methods
-    # TODO: Add feature that will keep asking for a directory if the one entered isn't a directory. 
+    # TODO: Add feature that will keep asking for a directory if the one entered isn't an actual directory. 
     plt.style.use('seaborn')
     x_axis_values = list(stats.file_frequency_dict.keys()) # File extensions
     y_axis_values = list(stats.file_frequency_dict.values()) # Number of occurences for a file extension
@@ -65,11 +64,24 @@ def traverse_directories(dir):
 
     Input: N/A
     Return: N/A
+    TODO: Add input validation for directories entered into the application
 '''
 def main():
+    directory = ""
     print("Please enter a directory:")
-    directory = input()
-    print(directory)
-    traverse_directories(directory)
+    finished_graphing = False
+
+    while(not finished_graphing):
+        directory = input()
+
+        if(directory == ""):
+            print("Please enter a directory:")
+        elif (directory == "exit" or directory == "e"):
+            finished_graphing = True
+        else:
+            print(directory)
+            traverse_directories(directory)
+
+    print("Exiting now")
 
 main()
