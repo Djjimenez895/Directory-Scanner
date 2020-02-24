@@ -64,6 +64,7 @@ def traverse_directories(dir):
     Description: This is the main function for running the program; use this function for running the application. 
 
     Input: N/A
+    Return: N/A
 '''
 def main():
     print("Please enter a directory:")
