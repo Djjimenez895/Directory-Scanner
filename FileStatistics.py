@@ -3,8 +3,6 @@ class FileStatistics:
     This class defines an object that keeps track
     of the frequency of different file types in the directories
     traversed. 
-
-    TODO: Add a method that finds the most commonly occurring file type and saves it into a variable. 
     """
     def __init__(self):
         print("Creating Statistics object")
