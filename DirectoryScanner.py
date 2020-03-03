@@ -25,6 +25,18 @@ def graph_files(stats):
     plt.xticks(x_pos, x_axis_values)
     plt.show()
 
+'''
+    Description: Checks the argument to see if it's a valid directory on the current system
+    Input: The directory to check if it exists
+    Return value: Returns true if the directory exists and false otherwise
+'''
+def is_valid_directory(path):
+    if not os.path.exists(path):
+        print("This path does not exist on this system; please enter a different directory")
+        return False
+    
+    return True
+    
 
 '''
     Description: Traverses the directory passed in as an argument and creates a FileStatistics 
@@ -61,23 +73,25 @@ def traverse_directories(dir):
     Description: This is the main function for running the program; use this function for running the application. 
     Input: N/A
     Return value: N/A
-    TODO: Add input validation for directories entered into the application
 '''
 def main():
     directory = ""
-    print("Please enter a directory:")
     finished_graphing = False
+    valid_dir = False
 
     while(not finished_graphing):
+        print("Please enter a directory: ")
         directory = input()
 
-        if(directory == ""):
-            print("Please enter a directory:")
-        elif (directory == "exit" or directory == "e"):
+        if (directory == "exit" or directory == "e"):
             finished_graphing = True
         else:
-            print(directory)
-            traverse_directories(directory)
+            valid_dir = is_valid_directory(directory)
+            print(valid_dir)
+
+            if(valid_dir):
+                print(directory)
+                traverse_directories(directory)
 
     print("Exiting now")
 
