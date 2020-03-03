@@ -9,7 +9,6 @@ import numpy as np
     Return value: N/A
 '''
 def graph_files(stats):
-    # TODO: Add a label to each individual bar in the graph
     plt.style.use('seaborn')
     x_axis_values = list(stats.file_frequency_dict.keys()) # File extensions
     y_axis_values = list(stats.file_frequency_dict.values()) # Number of occurences for a file extension
@@ -20,6 +19,12 @@ def graph_files(stats):
     plt.xlabel("File Extensions")
     plt.ylabel("Number of Files")
     plt.title("File Extension Occurences")
+
+    labels = stats.file_frequency_dict.values()
+    ax = plt.subplots()
+
+    for i, v in enumerate(y_axis_values):
+        ax.text(v + 3, i + .25, str(v))
 
     plt.xticks(x_pos, x_axis_values)
     plt.show()
@@ -46,8 +51,8 @@ def is_valid_directory(path):
 '''
 def traverse_directories(dir):
     stats = FileStatistics()
-
     print("traversing directories")
+
     for root, dirs, files in os.walk(dir):
         path = root.split(os.sep)
         
@@ -65,7 +70,6 @@ def traverse_directories(dir):
         for dir in dirs:
             print(dir)
 
-    # print(stats.file_frequency_dict)
     graph_files(stats)
 
 '''
