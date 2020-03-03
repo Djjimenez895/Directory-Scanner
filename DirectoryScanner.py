@@ -21,10 +21,6 @@ def graph_files(stats):
     plt.title("File Extension Occurences")
 
     labels = stats.file_frequency_dict.values()
-    ax = plt.subplots()
-
-    for i, v in enumerate(y_axis_values):
-        ax.text(v + 3, i + .25, str(v))
 
     plt.xticks(x_pos, x_axis_values)
     plt.show()

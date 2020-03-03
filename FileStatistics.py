@@ -28,7 +28,7 @@ class FileStatistics:
         Return value: A tuple containing the key, value pair for the most commonly occurring file extension
     """
     def find_most_common_ext():
-        most_common_ext = max(self.file_frequency_dict.items(), key=lambda k: k[1])
-        return most_common_ext
+        self.most_common_ext = max(self.file_frequency_dict.items(), key=lambda k: k[1])
+        return self.most_common_ext
 
 
